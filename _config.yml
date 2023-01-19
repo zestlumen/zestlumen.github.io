@@ -18,24 +18,23 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-# Build settings
 # theme: jekyll-theme-so-simple
 remote_theme: "mmistakes/so-simple-theme@3.2.0"
 skin: "/assets/css/skins/default.css"
 locale: ko-KR
 title: from Zestlumen
 description: >- # this means to ignore newlines until "baseurl:"
-  zestlumen이 스스로를 가르치고 배우는 개발 블로그.
+  Zestlumen이 스스로를 가르치고 배우는 개발 블로그.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://zestlumen.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-logo: "images/logo.png"
+logo: "/images/so-simple-site-logo.png"
 date_format: "%Y-%m-%d"
 read_time: true
+words_per_minute: 175
 mathjax:
   enable: # MathJax equations, e.g. true, false (default)
   combo:  # "tex-svg" (default), "tex-mml-chtml", etc.: docs.mathjax.org/en/latest/web/components/combined.html
   tags:  # "none", "ams" (default), "all"
-words_per_minute: 175
 google_fonts:
   # - name: "Do Hyeon"  # added by olvi
   #   weights: "400,400i,700,700i"
@@ -99,6 +98,14 @@ plugins:
   - jekyll-paginate
   - jekyll-last-modified-at 
 
+  
+# Collections
+# collections:
+#   recipes:
+#     output: true
+#     permalink: /:collection/:path/
+
+
 # Front Matter Defaults # customized by olvi
 defaults:
   # Posts defaults
@@ -107,7 +114,17 @@ defaults:
       type: posts
     values:
       layout: post
+      comments: true
       share: true
+
+# Recipe defaults
+# - scope:
+#     path: "_recipes"
+#     type: recipes
+#   values:
+#     layout: post
+#     comments: true
+#     share: true
 
 # Site Author 
 author:
@@ -122,9 +139,21 @@ author:
     - title: Linkedin
       url: 
       icon: fab fa-linkedin
+    - title: Instagram
+      url: https://instagram.com/mmistakes
+      icon: fab fa-instagram
+    - title: Twitter
+      url: https://twitter.com/mmistakes
+      icon: fab fa-twitter-square
 
 # Footer Links 
 footer_links:
+  - title: Twitter
+    url: https://twitter.com/mmistakes
+    icon: fab fa-twitter-square
+  - title: Instagram
+    url: https://instagram.com/mmistakes
+    icon: fab fa-instagram
   - title: GitHub
     url: https://github.com/zestlumen
     icon: fab fa-github-square
@@ -134,10 +163,7 @@ footer_links:
   - title: Feed
     url: atom.xml
     icon: fas fa-rss-square
-     
-
-email: zestlumen@gmail.com
-github_username:  zestlumen
+  
 
 
 
