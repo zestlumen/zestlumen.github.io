@@ -18,22 +18,62 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@example.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://zestlumen.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: jekyllrb
-github_username:  jekyll
-
 # Build settings
 # theme: jekyll-theme-so-simple
 remote_theme: "mmistakes/so-simple-theme@3.2.0"
-plugins:
-  - jekyll-feed
+skin: "/assets/css/skins/default.css"
+locale: ko-KR
+title: from Zestlumen
+description: >- # this means to ignore newlines until "baseurl:"
+  zestlumen이 스스로를 가르치고 배우는 개발 블로그.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://zestlumen.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+logo: "images/logo.png"
+date_format: "%Y-%m-%d"
+read_time: true
+mathjax:
+  enable: # MathJax equations, e.g. true, false (default)
+  combo:  # "tex-svg" (default), "tex-mml-chtml", etc.: docs.mathjax.org/en/latest/web/components/combined.html
+  tags:  # "none", "ams" (default), "all"
+words_per_minute: 175
+google_fonts:
+  # - name: "Do Hyeon"  # added by olvi
+  #   weights: "400,400i,700,700i"
+  - name: "Source Sans Pro"
+    weights: "400,400i,700,700i"
+  - name: "Lora"
+    weights: "400,400i,700,700i"
+google_analytics: # Google Analytics id, e.g. "UA-NNNNNNNN-N" # customized by olvi
+disqus:
+  shortname: # Disqus shortname, e.g. "my_disqus_shortname"
+twitter:
+  username: # site's Twitter username, e.g. "mmistakes"   
+
+# Liquid
+liquid:
+  error_mode: strict
+
+# Kramdown (ref. https://mmistakes.github.io/so-simple-theme/markup-syntax-highlighting/)
+kramdown:
+  input: GFM
+
+# Build settings
+permalink: /blog/:title # customized by olvi
+markdown: kramdown
+feed:
+  path: atom.xml
+
+# Pagination - https://jekyllrb.com/docs/pagination/
+paginate: 6 # customized by olvi (default:10)
+paginate_path: /page:num/
+
+# Search
+search_full_content: true # can have performance implications for large sites
+
+# Taxonomy pages # customized by olvi
+category_archive_path: "/category/#"
+tag_archive_path: "/tag/#"
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -42,15 +82,62 @@ plugins:
 #
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
-#
+
 # exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
 #   - Gemfile
 #   - Gemfile.lock
-#   - node_modules/
+#   - node_modules
 #   - vendor/bundle/
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-last-modified-at 
+
+# Front Matter Defaults # customized by olvi
+defaults:
+  # Posts defaults
+  - scope:
+      path: "_posts"
+      type: posts
+    values:
+      layout: post
+      share: true
+
+# Site Author 
+author:
+  name: zestlumen
+  picture: 
+  email:
+  twitter:
+  links:
+    - title: GitHub
+      url: https://github.com/zestlumen
+      icon: fab fa-github-square
+    - title: Linkedin
+      url: 
+      icon: fab fa-linkedin
+
+# Footer Links 
+footer_links:
+  - title: GitHub
+    url: https://github.com/zestlumen
+    icon: fab fa-github-square
+  - title: Linkedin
+    url: 
+    icon: fab fa-linkedin
+  - title: Feed
+    url: atom.xml
+    icon: fas fa-rss-square
+     
+
+email: zestlumen@gmail.com
+github_username:  zestlumen
+
+
+
